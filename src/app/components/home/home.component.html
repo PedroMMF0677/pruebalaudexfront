@@ -1,0 +1,7 @@
+<h1 class="text-center">
+    <p class="font-weight-bold text-uppercase" *ngIf="identity && identity.name">Bienvenido {{ identity.name }}.</p>
+    <p class="font-weight-bold" *ngIf="identity == null" >Hola Inicia sesion para continuar o en su defecto crea una cuenta para poder ingresar</p>
+</h1>
+
+
+<h5 class="text-center" *ngIf="identity && identity.name"> Ahora que iniciaste sesión puedes interactuar con nuestro menú</h5>

@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">idAlumno</th>
+        <th scope="col">Nombre Alumno</th>
+        <th scope="col">Fecha Nacimiento</th>
+        <th scope="col">Sexo</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumn of alumns">
+        <th scope="row">{{alumn.id}}</th>
+        <th>{{alumn.Name}} {{alumn.LastName}}</th>
+        <td>{{ alumn.Birthday}}</td>
+        <td>{{ alumn.Gender }}</td>
+        <td><button type="button" class="btn btn-outline-success" [routerLink]="['/consultar-alumno', alumn.id]">Info</button></td>        
+      </tr>
+    </tbody>
+  </table>
+  

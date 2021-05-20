@@ -1,0 +1,17 @@
+<div class="loading" *ngIf="!alumn">
+    Cargando...
+</div>
+<div class="card" *ngIf="alumn">
+    <h5 class="card-header">Datos del alumno</h5>
+    <div class="card-body">
+        <h5 class="card-title">
+            <p>Nombre Completo: {{alumn.Name}} {{alumn.LastName}} {{alumn.SecondLastName}}</p>
+            <p>Fecha de naciemiento: {{ alumn.Birthday }}</p>
+            <p>Genero: {{ alumn.Gender }}</p>
+            <p>Numero de telefono: {{ alumn.Phone }}</p>
+            <p>Grado de estudios: {{ alumn.StudyLevel }}</p>
+            <p>Correo: {{ alumn.Email }}</p>
+        </h5>                    
+      <a [routerLink]="['/mostrar-alumnos']" class="btn btnLaudex">regresar</a>
+    </div>
+  </div>

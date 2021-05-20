@@ -1,0 +1,102 @@
+<div class="col-md-12 mt-3">
+    <h1>{{ page_title }}</h1>
+    <p *ngIf="status !='success'">Registra un nuevo alumno.</p>
+    <p *ngIf="status !='success'" class="text-danger">Campos OBLIGATORIOS marcados con *.</p>
+
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        El alumno se ha registrado correctamente, <a [routerLink]="['/inicio']">Ir a inicio</a>
+    </div>
+    <div class="alert alert-danger col-md-12 mt-3" *ngIf="status == 'error'">
+        El alumno NO se han guardado correctamente, vuelve a intentarlo mas tarde
+    </div>
+
+    <hr />
+    <form class="col-md-12 ml-0 pl-0" autocomplete="off" [formGroup]="registerForm" (ngSubmit)="crearAlumn()">
+
+        <div class="row">
+            <div class="form-goup col-md-6">
+                <label for="name">Nombre <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="name" formControlName="Name">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastname">Apellido Paterno <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="lastname" formControlName="LastName">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="secondlastname">Apellido Materno <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="secondlastname" formControlName="SecondLastname">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="birthday">Fecha de nacimiento <span class="text-danger">*</span></label>
+
+                <input type="date" class="form-control" id="birthday" name="birthday" formControlName="Birthday">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="gender">Sexo <span class="text-danger">*</span></label>
+                <select class="form-control 
+                form-control-lg" formControlName="Gender">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="StudyLevel">Ultimo grado de estudios <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" name="StudyLevel" formControlName="StudyLevel">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" name="email" formControlName="Email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Phone">Telefono <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" name="Phone" formControlName="Phone">
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-danger col-md-12">
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Name')">
+                        El nombre es obligatorio
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('LastName')">
+                        El Apellido Paterno es obligatorio
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('SecondLastname')">
+                        El Apellido Materno es obligatorio
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Birthday')">
+                        La fecha de nacimiento es obligatoria
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Gender')">
+                        El sexo es obligatorio
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('StudyLevel')">
+                        El ultimo nivel de estudios es obligatorio
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Email')">
+                        El email es obligatorio y debe ser valido.
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Phone')">
+                        El numero de telefono es obligatorio
+                    </p>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success" value="Actualizar datos">
+    </form>
+    <br>
+</div>

@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+.btn {
+    font-family: "Roboto Slab", Sans-serif !important;
+    fill: #ffffff !important;
+    color: #ffffff !important;
+    background-color: #87d300 !important;
+    border-radius: 5px 5px 5px 5px !important;
+    box-shadow: -2px 5px 10px 0px rgb(0 0 0 / 10%) !important;
+
+}
+
+.btnLaudex:hover {
+    color: #000000 !important;
+    background-color: #00964b !important;
+}
+
+
+footer{
+    margin-top: 50px;
+    color:lightgray;
+}
+.card {
+    margin-top: 10px;
+}
+
+.card-header, .card-title {
+    color: #000;
+}

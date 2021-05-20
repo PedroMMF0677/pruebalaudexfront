@@ -1,0 +1,58 @@
+<div class="col-md-12 mt-3">
+    <h1>{{ page_title }}</h1>
+    <p *ngIf="status != 'success'">Registrate en nuestra plataforma para agregar alumnos nuevos y mas!!!</p>
+
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+        El registro se ha completado correctamente, <a [routerLink]="['/login']">logueate aquí</a>
+    </div>
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
+        El registro NO se ha completado correctamente, vuelve a intentarlo mas tarde
+    </div>
+    
+    <!--Formulario de registro-->
+    <form class="col-md-5 ml-0 pl-0" autocomplete="off" [formGroup]="registerForm" (ngSubmit)="crearUsuario()">
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input class="form-control" type="text" name="name" formControlName="Name">            
+        </div>
+        <div class="form-group">
+            <label for="surname">Apellido</label>
+            <input class="form-control" type="text" name="surname" formControlName="Surname">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" name="email" formControlName="Email">
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input class="form-control" type="password" name="password" formControlName="Password">
+        </div>
+
+        <div class="row">
+            <div class="text-danger col-md-12">
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Name')">
+                        El nombre es obligatorio
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Surname')">
+                        El Apellido es obligatorio
+                    </p>
+                </div>             
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Email')">
+                        El email es obligatorio y debe ser valido.
+                    </p>
+                </div> 
+                <div class="col-6">
+                    <p *ngIf="campoNoValido('Password')">
+                        La contraseña es obligatorio
+                    </p>
+                </div>               
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success" value="Registrarme">
+    </form>
+
+</div>
